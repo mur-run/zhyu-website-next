@@ -13,18 +13,7 @@ export async function POST(request: Request) {
       );
     }
 
-    // TODO: Implement email sending
-    // Options:
-    // 1. Resend (resend.com)
-    // 2. SendGrid
-    // 3. Nodemailer with SMTP
-    // 4. Web3Forms API
-    
-    // For now, just log and return success
-    console.log('Contact form submission:', { name, email, subject, message });
-
-    // Example with Web3Forms (uncomment and add API key):
-    /*
+    // Send via Web3Forms
     const web3Response = await fetch('https://api.web3forms.com/submit', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -32,15 +21,18 @@ export async function POST(request: Request) {
         access_key: process.env.WEB3FORMS_KEY,
         name,
         email,
-        subject,
+        subject: `[兆玥科技] ${subject}`,
         message,
+        from_name: 'Zhao Yue Tech Website',
       }),
     });
 
-    if (!web3Response.ok) {
+    const result = await web3Response.json();
+
+    if (!web3Response.ok || !result.success) {
+      console.error('Web3Forms error:', result);
       throw new Error('Failed to send email');
     }
-    */
 
     return NextResponse.json({ success: true });
   } catch (error) {

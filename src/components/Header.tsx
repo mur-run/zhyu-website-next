@@ -1,8 +1,7 @@
 'use client';
 
-import Link from 'next/link';
+import { Link, usePathname } from '@/i18n/navigation';
 import { useTranslations, useLocale } from 'next-intl';
-import { usePathname } from 'next/navigation';
 
 export default function Header() {
   const t = useTranslations('nav');
@@ -16,19 +15,8 @@ export default function Header() {
     { href: '/contact', label: t('contact') },
   ];
 
-  const switchLocale = (newLocale: string) => {
-    const segments = pathname.split('/');
-    if (['zh-TW', 'en'].includes(segments[1])) {
-      segments[1] = newLocale;
-    } else {
-      segments.splice(1, 0, newLocale);
-    }
-    return segments.join('/') || '/';
-  };
-
   const isActive = (href: string) => {
-    const path = pathname.replace(/^\/(zh-TW|en)/, '');
-    return path === href || path.startsWith(href + '/');
+    return pathname === href || pathname.startsWith(href + '/');
   };
 
   return (
@@ -59,7 +47,8 @@ export default function Header() {
         {/* Language Switcher */}
         <div className="flex items-center gap-2">
           <Link
-            href={switchLocale('zh-TW')}
+            href={pathname}
+            locale="zh-TW"
             className={`px-3 py-1.5 rounded text-sm font-medium transition-all ${
               locale === 'zh-TW'
                 ? 'bg-gray-900 text-white'
@@ -69,7 +58,8 @@ export default function Header() {
             中文
           </Link>
           <Link
-            href={switchLocale('en')}
+            href={pathname}
+            locale="en"
             className={`px-3 py-1.5 rounded text-sm font-medium transition-all ${
               locale === 'en'
                 ? 'bg-gray-900 text-white'

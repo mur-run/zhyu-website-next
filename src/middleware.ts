@@ -8,5 +8,11 @@ export default createMiddleware({
 });
 
 export const config = {
-  matcher: ['/', '/(zh-TW|en)/:path*']
+  matcher: [
+    // Match all pathnames except for
+    // - api routes
+    // - _next (internal)
+    // - static files
+    '/((?!api|_next|.*\\..*).*)'
+  ]
 };

@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import { Link, usePathname } from '@/i18n/navigation';
 import { useTranslations, useLocale } from 'next-intl';
 
@@ -24,12 +23,11 @@ export default function Header() {
     <header className="bg-white border-b border-gray-100 sticky top-0 z-50">
       <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2">
-          <Image 
+        <Link href="/" className="flex items-center">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img 
             src="/images/logo.png" 
-            alt="兆玥科技" 
-            width={140} 
-            height={32}
+            alt="兆玥科技 ZHAOYUE" 
             className="h-8 w-auto"
           />
         </Link>

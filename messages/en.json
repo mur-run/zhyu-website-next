@@ -1,0 +1,258 @@
+{
+  "common": {
+    "companyName": "Zhao Yue Tech. Inc.Ltd.",
+    "companyNameEn": "Zhao Yue Tech. Inc.Ltd.",
+    "copyright": "Copyright © 2014-2026 Zhao Yue Tech. Inc.Ltd., All rights reserved"
+  },
+  "nav": {
+    "about": "About",
+    "products": "Products",
+    "pricing": "Pricing",
+    "contact": "Contact"
+  },
+  "home": {
+    "tagline": "Profession · Speed · Quality · Passion",
+    "featuredProduct": "Featured Product",
+    "mureCoreDesc": "Continuous learning engine for AI-assisted development. Let AI remember your patterns and sync across tools.",
+    "learnMore": "Learn More",
+    "viewPricing": "View Pricing"
+  },
+  "products": {
+    "title": "Products",
+    "breadcrumb": "Products",
+    "publicBeta": "🚀 Now in Public Beta",
+    "tagline": "Continuous Learning for AI Assistants",
+    "heroDesc": "Learn once, remember forever.\nSync your development patterns across Claude, Gemini, Copilot, and more.",
+    "getStarted": "Get Started Free",
+    "starOnGithub": "⭐ Star on GitHub",
+    "stats": {
+      "tools": "AI Tools Supported",
+      "patterns": "Patterns Stored",
+      "savings": "Token Savings"
+    },
+    "problem": {
+      "title": "The Problem",
+      "repeating": {
+        "title": "Repeating Yourself",
+        "desc": "Every new AI session starts from zero. You explain the same patterns, preferences, and workarounds again and again."
+      },
+      "fragmentation": {
+        "title": "Tool Fragmentation",
+        "desc": "You use Claude for complex tasks, Gemini for quick questions, Copilot in VS Code. Knowledge doesn't transfer between them."
+      },
+      "tokens": {
+        "title": "Wasted Tokens",
+        "desc": "Stuffing context with documentation burns tokens. Your AI spends capacity reading instead of thinking."
+      },
+      "solution": "MURE Core solves all of this."
+    },
+    "howItWorks": {
+      "title": "How It Works",
+      "subtitle": "Three simple steps to supercharge your AI workflow",
+      "learn": {
+        "title": "Learn",
+        "desc": "MURE extracts patterns from your coding sessions automatically. Debug techniques, workarounds, best practices—all captured."
+      },
+      "sync": {
+        "title": "Sync",
+        "desc": "Push learned patterns to all your AI tools. Claude Code, Gemini CLI, Auggie, Codex—one command updates them all."
+      },
+      "search": {
+        "title": "Search",
+        "desc": "Find relevant patterns using semantic search. MURE understands context, not just keywords."
+      }
+    },
+    "features": {
+      "title": "Key Features",
+      "crossCli": {
+        "title": "Cross-CLI Sync",
+        "desc": "Patterns learned in Claude Code automatically sync to Gemini CLI, Auggie, and more. Configure once, apply everywhere. Your knowledge follows you across every tool."
+      },
+      "semanticSearch": {
+        "title": "Semantic Search",
+        "desc": "Find patterns using natural language. Powered by local embeddings (Ollama). No cloud required."
+      },
+      "patternLearning": {
+        "title": "Pattern Learning",
+        "desc": "Auto-extract reusable patterns from transcripts. Debug techniques, workarounds, all captured."
+      },
+      "tierLoading": {
+        "title": "3-Tier Loading",
+        "desc": "Smart token management: metadata (100 tokens), instructions (<5k), resources (on-demand). 97% savings."
+      },
+      "teamSharing": {
+        "title": "Team Sharing",
+        "desc": "Share patterns via Git or cloud sync. New team members inherit collective knowledge instantly."
+      },
+      "smartRouting": {
+        "title": "Smart Routing",
+        "desc": "Route simple questions to free tools, complex tasks to paid ones. Save money without sacrificing quality."
+      },
+      "privacy": {
+        "title": "Privacy First",
+        "desc": "All data stays on your machine. Cloud sync is encrypted at rest and in transit. You own your patterns."
+      },
+      "hooks": {
+        "title": "Hook Integration",
+        "desc": "Inject relevant patterns on every prompt. Seamless integration with Claude Code hooks system."
+      }
+    },
+    "demo": {
+      "title": "See It In Action",
+      "subtitle": "A typical MURE Core workflow"
+    },
+    "tools": {
+      "title": "Works With Your Favorite Tools",
+      "subtitle": "MURE Core integrates seamlessly with all major AI coding assistants",
+      "fullSupport": "✓ Full Support",
+      "directorySync": "✓ Directory Sync"
+    },
+    "useCases": {
+      "title": "Who Is It For?",
+      "solo": {
+        "title": "Solo Developers",
+        "desc": "Stop repeating yourself. Teach your AI once, use everywhere. Build up a personal knowledge base that grows with you."
+      },
+      "team": {
+        "title": "Engineering Teams",
+        "desc": "Share patterns across your team. Onboard new developers instantly with collective knowledge. Standardize AI interactions."
+      },
+      "org": {
+        "title": "Organizations",
+        "desc": "Enforce coding standards through AI. Distribute approved patterns. Track and audit AI-assisted development."
+      }
+    },
+    "testimonial": {
+      "quote": "\"I was spending 20% of my Claude tokens just re-explaining our codebase patterns. MURE Core cut that to near zero.\"",
+      "author": "— Early Beta User"
+    },
+    "cta": {
+      "title": "Ready to supercharge your AI workflow?",
+      "subtitle": "Start free. No credit card required. Upgrade when you need more.",
+      "viewPricing": "View Pricing Plans",
+      "readDocs": "Read the Docs"
+    }
+  },
+  "pricing": {
+    "title": "Pricing",
+    "breadcrumb": "Pricing",
+    "subtitle": "Start free. Upgrade when you need more.",
+    "free": {
+      "name": "Free",
+      "price": "$0",
+      "period": "/month",
+      "features": [
+        "50 local patterns",
+        "Full CLI access",
+        "Semantic search",
+        "Community support"
+      ],
+      "cta": "Get Started Free"
+    },
+    "pro": {
+      "name": "Pro",
+      "price": "$19",
+      "period": "/month",
+      "recommended": "RECOMMENDED",
+      "features": [
+        "Unlimited patterns",
+        "Cloud sync",
+        "Cross-device access",
+        "Priority support",
+        "Advanced analytics"
+      ],
+      "cta": "Upgrade to Pro"
+    },
+    "team": {
+      "name": "Team",
+      "price": "$49",
+      "period": "/month/user",
+      "features": [
+        "Everything in Pro",
+        "Team pattern sharing",
+        "Admin dashboard",
+        "SSO integration",
+        "Dedicated support"
+      ],
+      "cta": "Contact Sales"
+    },
+    "faq": {
+      "title": "FAQ",
+      "questions": {
+        "downgrade": {
+          "q": "What happens to my patterns if I downgrade?",
+          "a": "Your patterns are always yours. If you exceed the free tier limit, you'll still have read access to all patterns, but won't be able to add new ones until you upgrade or delete some."
+        },
+        "security": {
+          "q": "Is my data secure?",
+          "a": "Absolutely. All data is encrypted at rest and in transit (HTTPS). We never access your patterns without explicit permission."
+        }
+      }
+    },
+    "enterprise": {
+      "title": "Need a custom solution?",
+      "desc": "Enterprise plans with custom integrations, on-premise deployment, and dedicated support.",
+      "cta": "Contact Enterprise Sales"
+    }
+  },
+  "about": {
+    "title": "About ZHYU",
+    "breadcrumb": "About",
+    "tagline": "Profession · Speed · Quality · Passion is our 4 core spirit",
+    "taglineEn": "Profession, Quick, Quality & Passion is our 4 core spirit.",
+    "history": "Zhao Yue Tech was founded in 2005, initially focusing on enterprise websites and multimedia development, earning high praise in the industry and becoming long-term partners.\n\nThrough software quality control and self-developed platforms, our team can quickly deliver quality system software. With domain expertise and continuous R&D investment, we continue to grow stronger.\n\nIn 2026, we launched MURE Core — a continuous learning engine for AI-assisted development, helping developers let AI remember their patterns and sync across tools.",
+    "coreSpirit": {
+      "title": "4 Core Spirits",
+      "profession": {
+        "title": "Profession",
+        "desc": "Software requires high expertise. Beyond basic skills, we emphasize good development practices and design patterns."
+      },
+      "quick": {
+        "title": "Speed",
+        "desc": "We understand businesses value speed. We invest in building our own development tools and platforms to accelerate project delivery."
+      },
+      "quality": {
+        "title": "Quality",
+        "desc": "By using our self-developed tools and platforms, we ensure consistent quality control across all projects."
+      },
+      "passion": {
+        "title": "Passion",
+        "desc": "Software makes the world more convenient. We hope everyone at Zhao Yue Tech treats themselves and others with passion."
+      }
+    },
+    "future": {
+      "title": "Future Outlook",
+      "desc": "We will invest more resources in AI development tools and cloud services, continuing to build products that make developers more efficient."
+    }
+  },
+  "contact": {
+    "title": "Contact Us",
+    "breadcrumb": "Contact",
+    "subtitle": "Have questions or partnership inquiries? Get in touch with us.",
+    "form": {
+      "name": "Name",
+      "namePlaceholder": "Your name",
+      "email": "Email",
+      "emailPlaceholder": "your@email.com",
+      "subject": "Subject",
+      "subjectPlaceholder": "How can we help?",
+      "message": "Message",
+      "messagePlaceholder": "Your message...",
+      "submit": "Send Message",
+      "sending": "Sending...",
+      "success": "Message sent! We'll get back to you soon.",
+      "error": "Failed to send. Please try again."
+    },
+    "info": {
+      "title": "Other Ways to Reach Us",
+      "email": "Email",
+      "address": "Address",
+      "addressValue": "Taiwan"
+    }
+  },
+  "footer": {
+    "terms": "Terms of Service",
+    "privacy": "Privacy Policy",
+    "refund": "Refund Policy"
+  }
+}

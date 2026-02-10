@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { Link, usePathname } from '@/i18n/navigation';
 import { useTranslations, useLocale } from 'next-intl';
 
@@ -24,7 +25,13 @@ export default function Header() {
       <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
-          <span className="text-xl font-bold text-gray-900">兆玥科技</span>
+          <Image 
+            src="/images/logo.png" 
+            alt="兆玥科技" 
+            width={140} 
+            height={32}
+            className="h-8 w-auto"
+          />
         </Link>
 
         {/* Navigation */}

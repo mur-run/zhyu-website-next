@@ -1,18 +1,47 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 
 export default function ContactPage() {
   const t = useTranslations('contact');
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+  const [cooldown, setCooldown] = useState(false);
+  const lastSubmitRef = useRef<number>(0);
+  const submitCountRef = useRef<number>(0);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    
+    const now = Date.now();
+    
+    // Rate limiting: 60 seconds between submissions
+    if (now - lastSubmitRef.current < 60000) {
+      setCooldown(true);
+      setTimeout(() => setCooldown(false), 3000);
+      return;
+    }
+    
+    // Max 3 submissions per session
+    if (submitCountRef.current >= 3) {
+      setStatus('error');
+      return;
+    }
+    
     setStatus('sending');
+    lastSubmitRef.current = now;
+    submitCountRef.current += 1;
 
     const formData = new FormData(e.currentTarget);
+    
+    // Honeypot check - if filled, silently "succeed" but don't actually submit
+    if (formData.get('website')) {
+      setStatus('success');
+      (e.target as HTMLFormElement).reset();
+      return;
+    }
+    
     formData.append('access_key', 'ffaa6d0d-b989-45d0-ac4f-1888b854c352');
     formData.append('from_name', 'Zhao Yue Tech Website');
     
@@ -62,8 +91,15 @@ export default function ContactPage() {
       <section className="py-16 px-4">
         <div className="max-w-2xl mx-auto">
           <form onSubmit={handleSubmit} className="space-y-6">
-            {/* Honeypot for spam protection */}
-            <input type="checkbox" name="botcheck" className="hidden" />
+            {/* Honeypot - hidden field that bots will fill */}
+            <input 
+              type="text" 
+              name="website" 
+              className="hidden" 
+              style={{ position: 'absolute', left: '-9999px' }}
+              tabIndex={-1}
+              autoComplete="off"
+            />
             
             <div>
               <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
@@ -123,10 +159,14 @@ export default function ContactPage() {
 
             <button
               type="submit"
-              disabled={status === 'sending'}
+              disabled={status === 'sending' || cooldown}
               className="w-full py-4 bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-lg font-medium hover:opacity-90 transition-all disabled:opacity-50"
             >
-              {status === 'sending' ? t('form.sending') : t('form.submit')}
+              {cooldown 
+                ? '請稍候再試 / Please wait...' 
+                : status === 'sending' 
+                  ? t('form.sending') 
+                  : t('form.submit')}
             </button>
 
             {status === 'success' && (

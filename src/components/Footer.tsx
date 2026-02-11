@@ -27,15 +27,15 @@ export default function Footer() {
 
         {/* Legal Links */}
         <div className="flex flex-wrap justify-center gap-6 mb-8 text-sm">
-          <Link href="/legal/terms" className="text-gray-500 hover:text-gray-700 transition-colors">
+          <a href="/legal/terms" className="text-gray-500 hover:text-gray-700 transition-colors">
             {t('footer.terms')}
-          </Link>
-          <Link href="/legal/privacy" className="text-gray-500 hover:text-gray-700 transition-colors">
+          </a>
+          <a href="/legal/privacy" className="text-gray-500 hover:text-gray-700 transition-colors">
             {t('footer.privacy')}
-          </Link>
-          <Link href="/legal/refund" className="text-gray-500 hover:text-gray-700 transition-colors">
+          </a>
+          <a href="/legal/refund" className="text-gray-500 hover:text-gray-700 transition-colors">
             {t('footer.refund')}
-          </Link>
+          </a>
         </div>
 
         {/* Company Info */}

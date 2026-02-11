@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
 
 export const metadata = {
   title: 'Refund Policy | 兆玥科技',
@@ -8,14 +8,14 @@ export const metadata = {
 export default function RefundPage() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Header */}
-      <header className="bg-white border-b border-gray-100 sticky top-0 z-50">
-        <div className="max-w-6xl mx-auto px-4 h-16 flex items-center">
-          <Link href="/" className="flex items-center">
-            <img src="/images/logo.png" alt="兆玥科技" className="h-8 w-auto" />
-          </Link>
+      {/* Breadcrumb */}
+      <div className="bg-gray-50 py-3 px-4">
+        <div className="max-w-6xl mx-auto text-sm text-gray-600">
+          <Link href="/" className="hover:text-purple-600">首頁</Link>
+          <span className="mx-2">›</span>
+          <span>Refund Policy</span>
         </div>
-      </header>
+      </div>
 
       {/* Content */}
       <main className="max-w-4xl mx-auto px-4 py-12">
@@ -90,18 +90,6 @@ export default function RefundPage() {
           </div>
         </div>
       </main>
-
-      {/* Footer */}
-      <footer className="bg-gray-50 border-t border-gray-100 py-8">
-        <div className="max-w-6xl mx-auto px-4 text-center text-gray-500 text-sm">
-          <div className="flex justify-center gap-6 mb-4">
-            <Link href="/legal/terms" className="hover:text-gray-700">Terms of Service</Link>
-            <Link href="/legal/privacy" className="hover:text-gray-700">Privacy Policy</Link>
-            <Link href="/legal/refund" className="hover:text-gray-700">Refund Policy</Link>
-          </div>
-          <p>© 2014-2026 兆玥科技有限公司 Zhao Yue Tech. Inc.Ltd.</p>
-        </div>
-      </footer>
     </div>
   );
 }

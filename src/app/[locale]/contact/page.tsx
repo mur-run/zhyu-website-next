@@ -81,17 +81,21 @@ export default function ContactPage() {
 
       const result = await response.json();
 
+      console.log('Web3Forms response:', result);
+      
       if (result.success) {
         setStatus('success');
         (e.target as HTMLFormElement).reset();
         window.turnstile?.reset();
       } else {
         console.error('Web3Forms error:', result);
+        alert(`Error: ${result.message || 'Unknown error'}`);
         setStatus('error');
         window.turnstile?.reset();
       }
     } catch (error) {
       console.error('Submit error:', error);
+      alert(`Network error: ${error}`);
       setStatus('error');
       window.turnstile?.reset();
     }

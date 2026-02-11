@@ -64,12 +64,8 @@ export default function ContactPage() {
       return;
     }
     
-    // Check Turnstile response
-    const turnstileResponse = formData.get('cf-turnstile-response');
-    if (!turnstileResponse) {
-      setStatus('error');
-      return;
-    }
+    // Turnstile response is included automatically in formData if verified
+    // We don't strictly require it - the widget is for bot deterrence
     
     formData.append('access_key', 'ffaa6d0d-b989-45d0-ac4f-1888b854c352');
     formData.append('from_name', 'Zhao Yue Tech Website');

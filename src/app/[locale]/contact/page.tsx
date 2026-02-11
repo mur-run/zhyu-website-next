@@ -1,15 +1,37 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
+import Script from 'next/script';
+
+declare global {
+  interface Window {
+    turnstile?: {
+      reset: (widgetId?: string) => void;
+      getResponse: (widgetId?: string) => string | undefined;
+    };
+  }
+}
 
 export default function ContactPage() {
   const t = useTranslations('contact');
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
   const [cooldown, setCooldown] = useState(false);
+  const [turnstileReady, setTurnstileReady] = useState(false);
   const lastSubmitRef = useRef<number>(0);
   const submitCountRef = useRef<number>(0);
+
+  useEffect(() => {
+    // Check if Turnstile is loaded
+    const checkTurnstile = setInterval(() => {
+      if (window.turnstile) {
+        setTurnstileReady(true);
+        clearInterval(checkTurnstile);
+      }
+    }, 100);
+    return () => clearInterval(checkTurnstile);
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -23,8 +45,8 @@ export default function ContactPage() {
       return;
     }
     
-    // Max 3 submissions per session
-    if (submitCountRef.current >= 3) {
+    // Max 5 submissions per session
+    if (submitCountRef.current >= 5) {
       setStatus('error');
       return;
     }
@@ -35,17 +57,23 @@ export default function ContactPage() {
 
     const formData = new FormData(e.currentTarget);
     
-    // Honeypot check - if filled, silently "succeed" but don't actually submit
+    // Honeypot check
     if (formData.get('website')) {
       setStatus('success');
       (e.target as HTMLFormElement).reset();
       return;
     }
     
+    // Check Turnstile response
+    const turnstileResponse = formData.get('cf-turnstile-response');
+    if (!turnstileResponse) {
+      setStatus('error');
+      return;
+    }
+    
     formData.append('access_key', 'ffaa6d0d-b989-45d0-ac4f-1888b854c352');
     formData.append('from_name', 'Zhao Yue Tech Website');
     
-    // Modify subject to include prefix
     const subject = formData.get('subject');
     formData.set('subject', `[兆玥科技] ${subject}`);
     
@@ -60,18 +88,28 @@ export default function ContactPage() {
       if (result.success) {
         setStatus('success');
         (e.target as HTMLFormElement).reset();
+        window.turnstile?.reset();
       } else {
         console.error('Web3Forms error:', result);
         setStatus('error');
+        window.turnstile?.reset();
       }
     } catch (error) {
       console.error('Submit error:', error);
       setStatus('error');
+      window.turnstile?.reset();
     }
   };
 
   return (
     <div className="min-h-screen">
+      {/* Cloudflare Turnstile */}
+      <Script 
+        src="https://challenges.cloudflare.com/turnstile/v0/api.js" 
+        async 
+        defer 
+      />
+      
       {/* Breadcrumb */}
       <div className="bg-gray-50 py-3 px-4">
         <div className="max-w-6xl mx-auto text-sm text-gray-600">
@@ -91,7 +129,7 @@ export default function ContactPage() {
       <section className="py-16 px-4">
         <div className="max-w-2xl mx-auto">
           <form onSubmit={handleSubmit} className="space-y-6">
-            {/* Honeypot - hidden field that bots will fill */}
+            {/* Honeypot */}
             <input 
               type="text" 
               name="website" 
@@ -156,6 +194,14 @@ export default function ContactPage() {
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all resize-none"
               />
             </div>
+
+            {/* Cloudflare Turnstile Widget */}
+            <div 
+              className="cf-turnstile" 
+              data-sitekey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || '0x4AAAAAABDDj1NkRLqSFX9c'}
+              data-theme="light"
+              data-size="normal"
+            />
 
             <button
               type="submit"

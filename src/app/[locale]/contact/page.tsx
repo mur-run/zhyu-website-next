@@ -198,7 +198,7 @@ export default function ContactPage() {
             {/* Cloudflare Turnstile Widget */}
             <div 
               className="cf-turnstile" 
-              data-sitekey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || '0x4AAAAAABDDj1NkRLqSFX9c'}
+              data-sitekey="0x4AAAAAACaVrq_1-7wbZeZv"
               data-theme="light"
               data-size="normal"
             />

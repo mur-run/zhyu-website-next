@@ -1,116 +1,110 @@
-import { Link } from '@/i18n/navigation';
+'use client';
 
-export const metadata = {
-  title: 'Privacy Policy | 兆玥科技',
-  description: 'Privacy Policy for MUR Core and Zhao Yue Tech services',
-};
+import { Link } from '@/i18n/navigation';
+import { useTranslations } from 'next-intl';
 
 export default function PrivacyPage() {
+  const t = useTranslations('legal');
+
   return (
     <div className="min-h-screen bg-white">
       {/* Breadcrumb */}
       <div className="bg-gray-50 py-3 px-4">
         <div className="max-w-6xl mx-auto text-sm text-gray-600">
-          <Link href="/" className="hover:text-purple-600">首頁</Link>
+          <Link href="/" className="hover:text-purple-600">{t('home')}</Link>
           <span className="mx-2">›</span>
-          <span>Privacy Policy</span>
+          <span>{t('privacy.breadcrumb')}</span>
         </div>
       </div>
 
       {/* Content */}
       <main className="max-w-4xl mx-auto px-4 py-12">
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">Privacy Policy</h1>
-        <p className="text-gray-500 mb-8">Last Updated: February 10, 2026</p>
+        <h1 className="text-3xl font-bold text-gray-900 mb-2">{t('privacy.title')}</h1>
+        <p className="text-gray-500 mb-8">{t('lastUpdated')}</p>
 
         <div className="prose prose-gray max-w-none">
-          <p>Zhao Yue Tech. Inc.Ltd. (&quot;Company&quot;, &quot;we&quot;, &quot;us&quot;, or &quot;our&quot;) is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use MUR Core and related services.</p>
+          <p>{t('privacy.intro')}</p>
 
-          <h2>1. Information We Collect</h2>
+          <h2>{t('privacy.sections.collect.title')}</h2>
           
-          <h3>Information You Provide</h3>
+          <h3>{t('privacy.sections.collect.provided.title')}</h3>
           <ul>
-            <li><strong>Account Information:</strong> Name, email address, and password when you create an account</li>
-            <li><strong>Payment Information:</strong> Billing details processed by our payment provider (we do not store credit card numbers)</li>
-            <li><strong>Support Communications:</strong> Information you provide when contacting support</li>
+            {['0', '1', '2'].map((i) => (
+              <li key={i}>{t(`privacy.sections.collect.provided.items.${i}`)}</li>
+            ))}
           </ul>
 
-          <h3>Information Collected Automatically</h3>
+          <h3>{t('privacy.sections.collect.automatic.title')}</h3>
           <ul>
-            <li><strong>Usage Data:</strong> Features used, commands run, error logs (anonymized)</li>
-            <li><strong>Device Information:</strong> Operating system, browser type, IP address</li>
-            <li><strong>Cookies:</strong> Session cookies for authentication</li>
+            {['0', '1', '2'].map((i) => (
+              <li key={i}>{t(`privacy.sections.collect.automatic.items.${i}`)}</li>
+            ))}
           </ul>
 
-          <h3>Information We Do NOT Collect</h3>
+          <h3>{t('privacy.sections.collect.notCollect.title')}</h3>
           <ul>
-            <li>Your source code</li>
-            <li>Your pattern content (stored locally by default)</li>
-            <li>Your AI conversation history</li>
+            {['0', '1', '2'].map((i) => (
+              <li key={i}>{t(`privacy.sections.collect.notCollect.items.${i}`)}</li>
+            ))}
           </ul>
 
-          <h2>2. How We Use Your Information</h2>
-          <p>We use the information we collect to:</p>
+          <h2>{t('privacy.sections.use.title')}</h2>
+          <p>{t('privacy.sections.use.content')}</p>
           <ul>
-            <li>Provide, maintain, and improve our Services</li>
-            <li>Process transactions and send related information</li>
-            <li>Send technical notices and support messages</li>
-            <li>Respond to your comments and questions</li>
-            <li>Analyze usage patterns to improve user experience</li>
-            <li>Detect and prevent fraud or abuse</li>
+            {['0', '1', '2', '3', '4', '5'].map((i) => (
+              <li key={i}>{t(`privacy.sections.use.items.${i}`)}</li>
+            ))}
           </ul>
 
-          <h2>3. Cloud Sync Feature</h2>
-          <p>If you enable cloud sync (Pro and Team plans):</p>
+          <h2>{t('privacy.sections.cloudSync.title')}</h2>
+          <p>{t('privacy.sections.cloudSync.content')}</p>
           <ul>
-            <li>Your patterns are encrypted at rest and in transit</li>
-            <li>We implement appropriate security measures to protect your data</li>
-            <li>You can delete all cloud data at any time</li>
+            {['0', '1', '2'].map((i) => (
+              <li key={i}>{t(`privacy.sections.cloudSync.items.${i}`)}</li>
+            ))}
           </ul>
 
-          <h2>4. Data Sharing</h2>
-          <p>We do not sell your personal information. We may share information with:</p>
+          <h2>{t('privacy.sections.sharing.title')}</h2>
+          <p>{t('privacy.sections.sharing.content')}</p>
           <ul>
-            <li><strong>Service Providers:</strong> Companies that help us operate our services (hosting, payment processing, analytics)</li>
-            <li><strong>Legal Requirements:</strong> When required by law or to protect our rights</li>
-            <li><strong>Business Transfers:</strong> In connection with a merger or acquisition</li>
+            {['0', '1', '2'].map((i) => (
+              <li key={i}>{t(`privacy.sections.sharing.items.${i}`)}</li>
+            ))}
           </ul>
 
-          <h2>5. Data Security</h2>
-          <p>We implement appropriate security measures including:</p>
+          <h2>{t('privacy.sections.security.title')}</h2>
+          <p>{t('privacy.sections.security.content')}</p>
           <ul>
-            <li>Encryption of data in transit (HTTPS/TLS)</li>
-            <li>Encryption of data at rest</li>
-            <li>Regular security audits</li>
-            <li>Access controls and authentication</li>
+            {['0', '1', '2', '3'].map((i) => (
+              <li key={i}>{t(`privacy.sections.security.items.${i}`)}</li>
+            ))}
           </ul>
 
-          <h2>6. Data Retention</h2>
-          <p>We retain your information for as long as your account is active or as needed to provide services. You can request deletion of your account and associated data at any time.</p>
+          <h2>{t('privacy.sections.retention.title')}</h2>
+          <p>{t('privacy.sections.retention.content')}</p>
 
-          <h2>7. Your Rights</h2>
-          <p>You have the right to:</p>
+          <h2>{t('privacy.sections.rights.title')}</h2>
+          <p>{t('privacy.sections.rights.content')}</p>
           <ul>
-            <li>Access your personal information</li>
-            <li>Correct inaccurate information</li>
-            <li>Delete your account and data</li>
-            <li>Export your data</li>
-            <li>Opt out of marketing communications</li>
+            {['0', '1', '2', '3', '4'].map((i) => (
+              <li key={i}>{t(`privacy.sections.rights.items.${i}`)}</li>
+            ))}
           </ul>
 
-          <h2>8. International Data Transfers</h2>
-          <p>Your information may be transferred to and processed in countries other than your own. We ensure appropriate safeguards are in place for such transfers.</p>
+          <h2>{t('privacy.sections.international.title')}</h2>
+          <p>{t('privacy.sections.international.content')}</p>
 
-          <h2>9. Children&apos;s Privacy</h2>
-          <p>Our Services are not intended for children under 16. We do not knowingly collect information from children under 16.</p>
+          <h2>{t('privacy.sections.children.title')}</h2>
+          <p>{t('privacy.sections.children.content')}</p>
 
-          <h2>10. Changes to This Policy</h2>
-          <p>We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the &quot;Last Updated&quot; date.</p>
+          <h2>{t('privacy.sections.changes.title')}</h2>
+          <p>{t('privacy.sections.changes.content')}</p>
 
-          <h2>11. Contact Us</h2>
-          <p>If you have questions about this Privacy Policy, please contact us:</p>
+          <h2>{t('privacy.sections.contact.title')}</h2>
+          <p>{t('privacy.sections.contact.content')}</p>
           <p>
-            Zhao Yue Tech. Inc.Ltd.<br />
-            Email: privacy@zhyu.com.tw
+            {t('privacy.sections.contact.company')}<br />
+            {t('privacy.sections.contact.email')}
           </p>
         </div>
       </main>

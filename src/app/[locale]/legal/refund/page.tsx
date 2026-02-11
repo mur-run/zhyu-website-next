@@ -1,92 +1,91 @@
-import { Link } from '@/i18n/navigation';
+'use client';
 
-export const metadata = {
-  title: 'Refund Policy | 兆玥科技',
-  description: 'Refund Policy for MUR Core and Zhao Yue Tech services',
-};
+import { Link } from '@/i18n/navigation';
+import { useTranslations } from 'next-intl';
 
 export default function RefundPage() {
+  const t = useTranslations('legal');
+
   return (
     <div className="min-h-screen bg-white">
       {/* Breadcrumb */}
       <div className="bg-gray-50 py-3 px-4">
         <div className="max-w-6xl mx-auto text-sm text-gray-600">
-          <Link href="/" className="hover:text-purple-600">首頁</Link>
+          <Link href="/" className="hover:text-purple-600">{t('home')}</Link>
           <span className="mx-2">›</span>
-          <span>Refund Policy</span>
+          <span>{t('refund.breadcrumb')}</span>
         </div>
       </div>
 
       {/* Content */}
       <main className="max-w-4xl mx-auto px-4 py-12">
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">Refund Policy</h1>
-        <p className="text-gray-500 mb-8">Last Updated: February 10, 2026</p>
+        <h1 className="text-3xl font-bold text-gray-900 mb-2">{t('refund.title')}</h1>
+        <p className="text-gray-500 mb-8">{t('lastUpdated')}</p>
 
         <div className="prose prose-gray max-w-none">
-          <p>At Zhao Yue Tech. Inc.Ltd., we want you to be completely satisfied with your purchase of MUR Core services. This Refund Policy outlines the terms and conditions for refunds.</p>
+          <p>{t('refund.intro')}</p>
 
-          <h2>1. Refund Eligibility</h2>
-          <p>We offer refunds under the following circumstances:</p>
+          <h2>{t('refund.sections.eligibility.title')}</h2>
+          <p>{t('refund.sections.eligibility.content')}</p>
           
-          <h3>Eligible for Refund:</h3>
+          <h3>{t('refund.sections.eligibility.eligible.title')}</h3>
           <ul>
-            <li>Accidental duplicate purchases</li>
-            <li>Technical issues that prevent use of the service (if unresolved by our support team)</li>
-            <li>Service not as described</li>
+            {['0', '1', '2'].map((i) => (
+              <li key={i}>{t(`refund.sections.eligibility.eligible.items.${i}`)}</li>
+            ))}
           </ul>
 
-          <h3>Not Eligible for Refund:</h3>
+          <h3>{t('refund.sections.eligibility.notEligible.title')}</h3>
           <ul>
-            <li>Accounts terminated for Terms of Service violations</li>
-            <li>Partial month refunds for monthly subscriptions canceled mid-cycle</li>
-            <li>Custom enterprise agreements (subject to individual contract terms)</li>
-            <li>Change of mind after extended use of the service</li>
+            {['0', '1', '2', '3'].map((i) => (
+              <li key={i}>{t(`refund.sections.eligibility.notEligible.items.${i}`)}</li>
+            ))}
           </ul>
 
-          <h2>2. How to Request a Refund</h2>
-          <p>To request a refund:</p>
+          <h2>{t('refund.sections.howTo.title')}</h2>
+          <p>{t('refund.sections.howTo.content')}</p>
           <ul>
-            <li>Email us at <strong>support@zhyu.com.tw</strong></li>
-            <li>Include your account email and order number</li>
-            <li>Describe the reason for your refund request</li>
+            {['0', '1', '2'].map((i) => (
+              <li key={i}>{t(`refund.sections.howTo.items.${i}`)}</li>
+            ))}
           </ul>
-          <p>We will review your request and respond within 5-10 business days. Approved refunds will be credited to the original payment method.</p>
+          <p>{t('refund.sections.howTo.response')}</p>
 
-          <h2>3. Subscription Cancellation</h2>
-          <p>You can cancel your subscription at any time:</p>
+          <h2>{t('refund.sections.cancellation.title')}</h2>
+          <p>{t('refund.sections.cancellation.content')}</p>
           <ul>
-            <li><strong>Monthly Plans:</strong> Your subscription will remain active until the end of the current billing period. No refund for the remaining days.</li>
-            <li><strong>Annual Plans:</strong> You can continue using the service until the end of the annual period.</li>
-          </ul>
-
-          <h2>4. Prorated Refunds</h2>
-          <p>In certain circumstances, we may offer prorated refunds at our discretion:</p>
-          <ul>
-            <li>Extended service outages (more than 24 hours)</li>
-            <li>Removal of features you specifically purchased for</li>
-            <li>Other exceptional circumstances</li>
+            <li><strong>{t('refund.sections.cancellation.monthly')}</strong></li>
+            <li><strong>{t('refund.sections.cancellation.annual')}</strong></li>
           </ul>
 
-          <h2>5. Free Trial</h2>
-          <p>Our free tier does not require payment. If you upgrade to a paid plan and are not satisfied, please contact our support team to discuss your options.</p>
-
-          <h2>6. Currency and Fees</h2>
+          <h2>{t('refund.sections.prorated.title')}</h2>
+          <p>{t('refund.sections.prorated.content')}</p>
           <ul>
-            <li>Refunds are processed in the original currency of purchase</li>
-            <li>We do not charge any fees for processing refunds</li>
-            <li>Your bank or payment provider may have their own fees for international transactions</li>
+            {['0', '1', '2'].map((i) => (
+              <li key={i}>{t(`refund.sections.prorated.items.${i}`)}</li>
+            ))}
           </ul>
 
-          <h2>7. Contact Us</h2>
-          <p>If you have any questions about our Refund Policy, please contact us:</p>
+          <h2>{t('refund.sections.freeTrial.title')}</h2>
+          <p>{t('refund.sections.freeTrial.content')}</p>
+
+          <h2>{t('refund.sections.currency.title')}</h2>
+          <ul>
+            {['0', '1', '2'].map((i) => (
+              <li key={i}>{t(`refund.sections.currency.items.${i}`)}</li>
+            ))}
+          </ul>
+
+          <h2>{t('refund.sections.contact.title')}</h2>
+          <p>{t('refund.sections.contact.content')}</p>
           <p>
-            Zhao Yue Tech. Inc.Ltd.<br />
-            Email: support@zhyu.com.tw
+            {t('refund.sections.contact.company')}<br />
+            {t('refund.sections.contact.email')}
           </p>
 
           <div className="mt-8 p-6 bg-purple-50 rounded-lg border-l-4 border-purple-500">
-            <h3 className="mt-0 text-purple-900">Our Commitment</h3>
-            <p className="mb-0 text-purple-800">We believe in our product and want you to succeed. If you&apos;re having trouble getting value from MUR Core, please reach out to our support team before requesting a refund. We&apos;re happy to help you get the most out of our service.</p>
+            <h3 className="mt-0 text-purple-900">{t('refund.commitment.title')}</h3>
+            <p className="mb-0 text-purple-800">{t('refund.commitment.content')}</p>
           </div>
         </div>
       </main>

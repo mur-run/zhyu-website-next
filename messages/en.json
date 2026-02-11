@@ -254,5 +254,272 @@
     "terms": "Terms of Service",
     "privacy": "Privacy Policy",
     "refund": "Refund Policy"
+  },
+  "legal": {
+    "home": "Home",
+    "lastUpdated": "Last Updated: February 10, 2026",
+    "terms": {
+      "title": "Terms of Service",
+      "breadcrumb": "Terms of Service",
+      "intro": "Welcome to MUR Core and the services provided by Zhao Yue Tech. Inc.Ltd. (\"Company\", \"we\", \"us\", or \"our\"). By accessing or using our services, you agree to be bound by these Terms of Service (\"Terms\").",
+      "sections": {
+        "acceptance": {
+          "title": "1. Acceptance of Terms",
+          "content": "By accessing or using MUR Core software, website, or any related services (collectively, the \"Services\"), you agree to be bound by these Terms. If you do not agree to these Terms, do not use the Services."
+        },
+        "description": {
+          "title": "2. Description of Services",
+          "content": "MUR Core is a software tool that helps developers manage and synchronize development patterns across multiple AI coding assistants. The Services include:",
+          "items": [
+            "MUR Core CLI software",
+            "Cloud synchronization features (for paid plans)",
+            "Team collaboration features (for team plans)",
+            "Related documentation and support"
+          ]
+        },
+        "accounts": {
+          "title": "3. User Accounts",
+          "content": "To access certain features of the Services, you may need to create an account. You are responsible for:",
+          "items": [
+            "Maintaining the confidentiality of your account credentials",
+            "All activities that occur under your account",
+            "Notifying us immediately of any unauthorized use"
+          ]
+        },
+        "acceptableUse": {
+          "title": "4. Acceptable Use",
+          "content": "You agree not to:",
+          "items": [
+            "Use the Services for any illegal purpose",
+            "Attempt to gain unauthorized access to any part of the Services",
+            "Interfere with or disrupt the Services",
+            "Reverse engineer, decompile, or disassemble the software (except as permitted by law)",
+            "Resell or redistribute the Services without authorization"
+          ]
+        },
+        "ip": {
+          "title": "5. Intellectual Property",
+          "content": "The Services and all related intellectual property rights are owned by Zhao Yue Tech. Inc.Ltd. The open-source components of MUR Core are licensed under the MIT License. Your patterns and data remain your property."
+        },
+        "payment": {
+          "title": "6. Payment Terms",
+          "content": "For paid Services:",
+          "items": [
+            "Fees are charged in advance on a monthly or annual basis",
+            "All fees are non-refundable except as stated in our Refund Policy",
+            "We may change prices with 30 days notice",
+            "You are responsible for any applicable taxes"
+          ]
+        },
+        "termination": {
+          "title": "7. Termination",
+          "content": "We may suspend or terminate your access to the Services at any time for violation of these Terms. Upon termination, your right to use the Services will cease immediately. You may export your data before termination."
+        },
+        "disclaimer": {
+          "title": "8. Disclaimer of Warranties",
+          "content": "THE SERVICES ARE PROVIDED \"AS IS\" WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT."
+        },
+        "liability": {
+          "title": "9. Limitation of Liability",
+          "content": "IN NO EVENT SHALL ZHAO YUE TECH. INC.LTD. BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, OR ANY LOSS OF PROFITS OR REVENUES, WHETHER INCURRED DIRECTLY OR INDIRECTLY."
+        },
+        "governing": {
+          "title": "10. Governing Law",
+          "content": "These Terms shall be governed by and construed in accordance with the laws of Taiwan (R.O.C.), without regard to its conflict of law provisions. Any disputes shall be resolved in the courts of Taipei, Taiwan."
+        },
+        "changes": {
+          "title": "11. Changes to Terms",
+          "content": "We reserve the right to modify these Terms at any time. We will notify users of any material changes via email or through the Services. Continued use of the Services after such modifications constitutes acceptance of the updated Terms."
+        },
+        "contact": {
+          "title": "12. Contact Information",
+          "content": "If you have any questions about these Terms, please contact us at:",
+          "company": "Zhao Yue Tech. Inc.Ltd.",
+          "email": "Email: support@zhyu.com.tw"
+        }
+      }
+    },
+    "privacy": {
+      "title": "Privacy Policy",
+      "breadcrumb": "Privacy Policy",
+      "intro": "Zhao Yue Tech. Inc.Ltd. (\"Company\", \"we\", \"us\", or \"our\") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use MUR Core and related services.",
+      "sections": {
+        "collect": {
+          "title": "1. Information We Collect",
+          "provided": {
+            "title": "Information You Provide",
+            "items": [
+              "Account Information: Name, email address, and password when you create an account",
+              "Payment Information: Billing details processed by our payment provider (we do not store credit card numbers)",
+              "Support Communications: Information you provide when contacting support"
+            ]
+          },
+          "automatic": {
+            "title": "Information Collected Automatically",
+            "items": [
+              "Usage Data: Features used, commands run, error logs (anonymized)",
+              "Device Information: Operating system, browser type, IP address",
+              "Cookies: Session cookies for authentication"
+            ]
+          },
+          "notCollect": {
+            "title": "Information We Do NOT Collect",
+            "items": [
+              "Your source code",
+              "Your pattern content (stored locally by default)",
+              "Your AI conversation history"
+            ]
+          }
+        },
+        "use": {
+          "title": "2. How We Use Your Information",
+          "content": "We use the information we collect to:",
+          "items": [
+            "Provide, maintain, and improve our Services",
+            "Process transactions and send related information",
+            "Send technical notices and support messages",
+            "Respond to your comments and questions",
+            "Analyze usage patterns to improve user experience",
+            "Detect and prevent fraud or abuse"
+          ]
+        },
+        "cloudSync": {
+          "title": "3. Cloud Sync Feature",
+          "content": "If you enable cloud sync (Pro and Team plans):",
+          "items": [
+            "Your patterns are encrypted at rest and in transit",
+            "We implement appropriate security measures to protect your data",
+            "You can delete all cloud data at any time"
+          ]
+        },
+        "sharing": {
+          "title": "4. Data Sharing",
+          "content": "We do not sell your personal information. We may share information with:",
+          "items": [
+            "Service Providers: Companies that help us operate our services (hosting, payment processing, analytics)",
+            "Legal Requirements: When required by law or to protect our rights",
+            "Business Transfers: In connection with a merger or acquisition"
+          ]
+        },
+        "security": {
+          "title": "5. Data Security",
+          "content": "We implement appropriate security measures including:",
+          "items": [
+            "Encryption of data in transit (HTTPS/TLS)",
+            "Encryption of data at rest",
+            "Regular security audits",
+            "Access controls and authentication"
+          ]
+        },
+        "retention": {
+          "title": "6. Data Retention",
+          "content": "We retain your information for as long as your account is active or as needed to provide services. You can request deletion of your account and associated data at any time."
+        },
+        "rights": {
+          "title": "7. Your Rights",
+          "content": "You have the right to:",
+          "items": [
+            "Access your personal information",
+            "Correct inaccurate information",
+            "Delete your account and data",
+            "Export your data",
+            "Opt out of marketing communications"
+          ]
+        },
+        "international": {
+          "title": "8. International Data Transfers",
+          "content": "Your information may be transferred to and processed in countries other than your own. We ensure appropriate safeguards are in place for such transfers."
+        },
+        "children": {
+          "title": "9. Children's Privacy",
+          "content": "Our Services are not intended for children under 16. We do not knowingly collect information from children under 16."
+        },
+        "changes": {
+          "title": "10. Changes to This Policy",
+          "content": "We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the \"Last Updated\" date."
+        },
+        "contact": {
+          "title": "11. Contact Us",
+          "content": "If you have questions about this Privacy Policy, please contact us:",
+          "company": "Zhao Yue Tech. Inc.Ltd.",
+          "email": "Email: privacy@zhyu.com.tw"
+        }
+      }
+    },
+    "refund": {
+      "title": "Refund Policy",
+      "breadcrumb": "Refund Policy",
+      "intro": "At Zhao Yue Tech. Inc.Ltd., we want you to be completely satisfied with your purchase of MUR Core services. This Refund Policy outlines the terms and conditions for refunds.",
+      "sections": {
+        "eligibility": {
+          "title": "1. Refund Eligibility",
+          "content": "We offer refunds under the following circumstances:",
+          "eligible": {
+            "title": "Eligible for Refund:",
+            "items": [
+              "Accidental duplicate purchases",
+              "Technical issues that prevent use of the service (if unresolved by our support team)",
+              "Service not as described"
+            ]
+          },
+          "notEligible": {
+            "title": "Not Eligible for Refund:",
+            "items": [
+              "Accounts terminated for Terms of Service violations",
+              "Partial month refunds for monthly subscriptions canceled mid-cycle",
+              "Custom enterprise agreements (subject to individual contract terms)",
+              "Change of mind after extended use of the service"
+            ]
+          }
+        },
+        "howTo": {
+          "title": "2. How to Request a Refund",
+          "content": "To request a refund:",
+          "items": [
+            "Email us at support@zhyu.com.tw",
+            "Include your account email and order number",
+            "Describe the reason for your refund request"
+          ],
+          "response": "We will review your request and respond within 5-10 business days. Approved refunds will be credited to the original payment method."
+        },
+        "cancellation": {
+          "title": "3. Subscription Cancellation",
+          "content": "You can cancel your subscription at any time:",
+          "monthly": "Monthly Plans: Your subscription will remain active until the end of the current billing period. No refund for the remaining days.",
+          "annual": "Annual Plans: You can continue using the service until the end of the annual period."
+        },
+        "prorated": {
+          "title": "4. Prorated Refunds",
+          "content": "In certain circumstances, we may offer prorated refunds at our discretion:",
+          "items": [
+            "Extended service outages (more than 24 hours)",
+            "Removal of features you specifically purchased for",
+            "Other exceptional circumstances"
+          ]
+        },
+        "freeTrial": {
+          "title": "5. Free Trial",
+          "content": "Our free tier does not require payment. If you upgrade to a paid plan and are not satisfied, please contact our support team to discuss your options."
+        },
+        "currency": {
+          "title": "6. Currency and Fees",
+          "items": [
+            "Refunds are processed in the original currency of purchase",
+            "We do not charge any fees for processing refunds",
+            "Your bank or payment provider may have their own fees for international transactions"
+          ]
+        },
+        "contact": {
+          "title": "7. Contact Us",
+          "content": "If you have any questions about our Refund Policy, please contact us:",
+          "company": "Zhao Yue Tech. Inc.Ltd.",
+          "email": "Email: support@zhyu.com.tw"
+        }
+      },
+      "commitment": {
+        "title": "Our Commitment",
+        "content": "We believe in our product and want you to succeed. If you're having trouble getting value from MUR Core, please reach out to our support team before requesting a refund. We're happy to help you get the most out of our service."
+      }
+    }
   }
 }

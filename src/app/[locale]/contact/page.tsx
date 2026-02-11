@@ -64,8 +64,9 @@ export default function ContactPage() {
       return;
     }
     
-    // Turnstile response is included automatically in formData if verified
-    // We don't strictly require it - the widget is for bot deterrence
+    // Remove Turnstile response - Web3Forms free tier doesn't support it
+    // Keep the widget as visual deterrent for bots
+    formData.delete('cf-turnstile-response');
     
     formData.append('access_key', 'ffaa6d0d-b989-45d0-ac4f-1888b854c352');
     formData.append('from_name', 'Zhao Yue Tech Website');
@@ -81,21 +82,17 @@ export default function ContactPage() {
 
       const result = await response.json();
 
-      console.log('Web3Forms response:', result);
-      
       if (result.success) {
         setStatus('success');
         (e.target as HTMLFormElement).reset();
         window.turnstile?.reset();
       } else {
         console.error('Web3Forms error:', result);
-        alert(`Error: ${result.message || 'Unknown error'}`);
         setStatus('error');
         window.turnstile?.reset();
       }
     } catch (error) {
       console.error('Submit error:', error);
-      alert(`Network error: ${error}`);
       setStatus('error');
       window.turnstile?.reset();
     }

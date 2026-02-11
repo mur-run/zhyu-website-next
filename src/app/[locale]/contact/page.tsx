@@ -13,26 +13,30 @@ export default function ContactPage() {
     setStatus('sending');
 
     const formData = new FormData(e.currentTarget);
+    formData.append('access_key', 'ffaa6d0d-b989-45d0-ac4f-1888b854c352');
+    formData.append('from_name', 'Zhao Yue Tech Website');
+    
+    // Modify subject to include prefix
+    const subject = formData.get('subject');
+    formData.set('subject', `[兆玥科技] ${subject}`);
     
     try {
-      const response = await fetch('/api/contact', {
+      const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: formData.get('name'),
-          email: formData.get('email'),
-          subject: formData.get('subject'),
-          message: formData.get('message'),
-        }),
+        body: formData,
       });
 
-      if (response.ok) {
+      const result = await response.json();
+
+      if (result.success) {
         setStatus('success');
         (e.target as HTMLFormElement).reset();
       } else {
+        console.error('Web3Forms error:', result);
         setStatus('error');
       }
-    } catch {
+    } catch (error) {
+      console.error('Submit error:', error);
       setStatus('error');
     }
   };
@@ -58,6 +62,9 @@ export default function ContactPage() {
       <section className="py-16 px-4">
         <div className="max-w-2xl mx-auto">
           <form onSubmit={handleSubmit} className="space-y-6">
+            {/* Honeypot for spam protection */}
+            <input type="checkbox" name="botcheck" className="hidden" />
+            
             <div>
               <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
                 {t('form.name')}

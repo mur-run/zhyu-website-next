@@ -1,15 +1,14 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import Script from 'next/script';
 
 declare global {
   interface Window {
-    turnstile?: {
+    hcaptcha?: {
       reset: (widgetId?: string) => void;
-      getResponse: (widgetId?: string) => string | undefined;
     };
   }
 }
@@ -18,20 +17,8 @@ export default function ContactPage() {
   const t = useTranslations('contact');
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
   const [cooldown, setCooldown] = useState(false);
-  const [turnstileReady, setTurnstileReady] = useState(false);
   const lastSubmitRef = useRef<number>(0);
   const submitCountRef = useRef<number>(0);
-
-  useEffect(() => {
-    // Check if Turnstile is loaded
-    const checkTurnstile = setInterval(() => {
-      if (window.turnstile) {
-        setTurnstileReady(true);
-        clearInterval(checkTurnstile);
-      }
-    }, 100);
-    return () => clearInterval(checkTurnstile);
-  }, []);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -64,11 +51,8 @@ export default function ContactPage() {
       return;
     }
     
-    // Remove Turnstile response - Web3Forms free tier doesn't support it
-    // Keep the widget as visual deterrent for bots
-    formData.delete('cf-turnstile-response');
-    
     formData.append('access_key', 'ffaa6d0d-b989-45d0-ac4f-1888b854c352');
+    formData.append('captcha_provider', 'hcaptcha');
     formData.append('from_name', 'Zhao Yue Tech Website');
     
     const subject = formData.get('subject');
@@ -85,24 +69,24 @@ export default function ContactPage() {
       if (result.success) {
         setStatus('success');
         (e.target as HTMLFormElement).reset();
-        window.turnstile?.reset();
+        window.hcaptcha?.reset();
       } else {
         console.error('Web3Forms error:', result);
         setStatus('error');
-        window.turnstile?.reset();
+        window.hcaptcha?.reset();
       }
     } catch (error) {
       console.error('Submit error:', error);
       setStatus('error');
-      window.turnstile?.reset();
+      window.hcaptcha?.reset();
     }
   };
 
   return (
     <div className="min-h-screen">
-      {/* Cloudflare Turnstile */}
+      {/* hCaptcha */}
       <Script 
-        src="https://challenges.cloudflare.com/turnstile/v0/api.js" 
+        src="https://js.hcaptcha.com/1/api.js" 
         async 
         defer 
       />
@@ -192,12 +176,11 @@ export default function ContactPage() {
               />
             </div>
 
-            {/* Cloudflare Turnstile Widget */}
+            {/* hCaptcha */}
             <div 
-              className="cf-turnstile" 
-              data-sitekey="0x4AAAAAACaVrq_1-7wbZeZv"
+              className="h-captcha" 
+              data-sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2"
               data-theme="light"
-              data-size="normal"
             />
 
             <button

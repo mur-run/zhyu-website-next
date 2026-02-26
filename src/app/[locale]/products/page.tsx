@@ -78,7 +78,7 @@ function ProductsContent() {
             <Link href="/pricing" className="px-8 py-3 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-lg font-medium hover:opacity-90 transition-opacity">
               {t('getStarted')}
             </Link>
-            <a href="https://github.com/mur-run/mur-core" target="_blank" className="px-8 py-3 border border-gray-700 rounded-lg font-medium hover:border-gray-500 transition-colors">
+            <a href="https://github.com/mur-run/mur" target="_blank" className="px-8 py-3 border border-gray-700 rounded-lg font-medium hover:border-gray-500 transition-colors">
               {t('starOnGithub')}
             </a>
           </div>
@@ -251,7 +251,7 @@ Found 3 patterns (score > 0.5):
             <Link href="/pricing" className="px-8 py-4 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-lg font-medium text-lg hover:opacity-90 transition-opacity">
               {t('cta.viewPricing')}
             </Link>
-            <a href="https://github.com/mur-run/mur-core" target="_blank" className="px-8 py-4 border border-gray-700 rounded-lg font-medium text-lg hover:border-gray-500 transition-colors">
+            <a href="https://github.com/mur-run/mur" target="_blank" className="px-8 py-4 border border-gray-700 rounded-lg font-medium text-lg hover:border-gray-500 transition-colors">
               {t('cta.readDocs')}
             </a>
           </div>
